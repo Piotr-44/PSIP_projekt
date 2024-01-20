@@ -17,27 +17,18 @@ cursor = db_params.cursor()
 #####################################
 
 
-def add_user():
-    name = input("Podaj imię:  ")
-    nick = input("Podaj nick:  ")
-    city = input("Podaj miasto:  ")
-    posts = input("Podaj liczbę postów:  ")
+def add_med_station():
+    station = input("Podaj nazwę stacji:  ")
+    location = input("Podaj adres stacji:  ")
+    employees = input("Podaj nazwiska pracowników:  ")
+    calls = input("Podaj realizowane wezwania:  ")
 
-    # Check if the user with the same nickname already exists
-    check_query = f"SELECT * FROM public.tabela_psip WHERE nick = '{nick}';"
-    cursor.execute(check_query)
-    existing_user = cursor.fetchone()
+    insert_query = f"INSERT INTO public.zabezpieczenie_medyczne(nazwa_stacji, lokalizacja, pracownicy, wezwania) VALUES ('{station}', '{location}', '{employees}', '{calls}');"
+    cursor.execute(insert_query)
+    db_params.commit()
+    print(f"Dodano informacje o stacji pogotowia - {station}.")
 
-    if existing_user:
-        print("Taki nick już istnieje.")
-        add_user()
-    else:
-        # Insert the new user
-        insert_query = f"INSERT INTO public.tabela_psip(city, nick, name, posts) VALUES ('{city}', '{nick}', '{name}', '{posts}');"
-        cursor.execute(insert_query)
-        db_params.commit()
-        print("Użytkownik dodany pomyślnie.")
-
+# add_med_station()
 
 
 #####################################
@@ -60,14 +51,12 @@ def remove_user():
         cursor.execute(sql_query_2)
         db_params.commit()
     else:
-        sql_query_2 = f"DELETE FROM public.tabela_psip WHERE id='{query_result[numer-1][0]}';"
+        sql_query_2 = f"DELETE FROM public.tabela_psip WHERE id='{query_result[numer - 1][0]}';"
         cursor.execute(sql_query_2)
         db_params.commit()
 
 
-
 #####################################
-
 
 
 def update_user():
@@ -84,23 +73,19 @@ def update_user():
     db_params.commit()
 
 
-
 #####################################
 
 
-
-def show_users_from():
-    sql_query_1 = f' SELECT * FROM public.tabela_psip'
+def show():
+    sql_query_1 = f' SELECT * FROM public.zabezpieczenie_medyczne'
     cursor.execute(sql_query_1)
     query_result = cursor.fetchall()
     for row in query_result:
-        print(f'Twój znajomy {row[3]} mieszka w mieście {row[1]} i opublikował {row[4]} postów')
-
-
+        print(f'{row[0]} - {row[1]}')
+show()
 
 
 #####################################
-
 
 
 def get_coordinates_of(city: str) -> list[float, float]:
@@ -118,9 +103,7 @@ def get_coordinates_of(city: str) -> list[float, float]:
     return [response_html_latitude, response_html_longitude]
 
 
-
 #####################################
-
 
 
 def get_map_one_user():
@@ -141,13 +124,11 @@ def get_map_one_user():
     map.save(f'mapka_{user[1]}_{user[2]}.html')
 
 
-
 #####################################
 
 
-
 def get_map_of():
-    map = folium.Map(location=[52.3,21.0], tiles="OpenStreetMap", zoom_start=7)
+    map = folium.Map(location=[52.3, 21.0], tiles="OpenStreetMap", zoom_start=7)
     sql_query_1 = f"SELECT * FROM public.tabela_psip;"
     cursor.execute(sql_query_1)
     query_result = cursor.fetchall()
@@ -159,9 +140,7 @@ def get_map_of():
     print("W przypadku braku wygenerowanej mapy - zakończ program, aby wyświetlić wynik")
 
 
-
 #####################################
-
 
 
 def gui() -> None:
@@ -201,11 +180,8 @@ def gui() -> None:
                 print('Rysuję mapę z wszystkimi użytkownikami')
                 get_map_of()
 
-
-
-
 #####################################
 #####################################
 
 
-
+# utrata przytomności, zaburzenia świadomości, ciężkie urazy, bardzo wysoka gorączka, zatrzymanie akcji serca, ostry ból w klatce piersiowej, ostry ból brzucha, nasilona duszność, masywny krwotok, rozległe oparzenia, wychłodzenie, porażenie prądem, zadławienie się
