@@ -14,7 +14,7 @@ db_params = pcg.connect(
 
 cursor = db_params.cursor()
 
-# DATABASE
+###########DATABASE###############
 def add_med_station():
     station = input("Podaj nazwę stacji:  ")
     location = input("Podaj adres stacji:  ")
@@ -31,21 +31,22 @@ def add_med_station():
 
 ##########################################################
 
-# def remove_med_station():
-#     station = input("Podaj nazwę stacji do usunięcia:  ")
-#     sql_query_1 = f" SELECT * FROM public.tabela_psip WHERE name='{station}';"
-#     cursor.execute(sql_query_1)
-#     query_result = cursor.fetchall()
-#     print(f'Znaleziono następujące stacje: ')
-# 
-#     for numer_stacji, station_to_be_removed in enumerate(query_result):
-#         print(f'{numer_stacji + 1}: {station_to_be_removed}')
-#     numer = int(input(f'Wybierz stację do usunięcia: '))
-#     print(numer)
-#     sql_query_2 = f"DELETE FROM public.zabezpieczenie_medyczne WHERE id='{query_result[numer - 1][0]}';"
-#     cursor.execute(sql_query_2)
-#     db_params.commit()
-#
+def remove_med_station():
+    station = input("Podaj nazwę stacji do usunięcia:  ")
+    sql_query_1 = f" SELECT * FROM public.zabezpieczenie_medyczne WHERE nazwa_stacji='{station}';"
+    cursor.execute(sql_query_1)
+    query_result = cursor.fetchall()
+    print(f'Znaleziono następujące stacje: ')
+
+    for numer_stacji, station_to_be_removed in enumerate(query_result):
+        print(f'{numer_stacji + 1}: {station_to_be_removed}')
+    numer = int(input(f'Wybierz stację do usunięcia: '))
+    print(numer)
+    sql_query_2 = f"DELETE FROM public.zabezpieczenie_medyczne WHERE id='{query_result[numer - 1][0]}';"
+    cursor.execute(sql_query_2)
+    db_params.commit()
+    print(f'Usunięto informacje dotyczące wybranej stacji')
+
 # remove_med_station()
 
 ##########################################################
@@ -71,4 +72,26 @@ def update_station_name():
 
 
 ###########################################################
+# WSZYSCY PRACOWNICY
+def show_all_employees():
+    sql_query_1 = f' SELECT * FROM public.zabezpieczenie_medyczne'
+    cursor.execute(sql_query_1)
+    query_result = cursor.fetchall()
+    for row in query_result:
+        print(f'Ratownik -  {row[3]}, adres: {row[2]}')
 
+# show_all_employees()
+
+############################################################
+
+def remove_all_employees():
+    sql_query_1 = f'UPDATE public.zabezpieczenie_medyczne SET dane_ratownika = NULL WHERE id>0'
+    cursor.execute(sql_query_1)
+    db_params.commit()
+    sql_query_2 = f' SELECT * FROM public.zabezpieczenie_medyczne'
+    cursor.execute(sql_query_2)
+    query_result = cursor.fetchall()
+    for row in query_result:
+        print(f'')
+
+remove_all_employees()
