@@ -17,7 +17,7 @@ cursor = db_params.cursor()
 ########### STACJE POGOTOWIA ###############
 def add_med_station():
     station = input("Podaj nazwę stacji:  ")
-    location = input("Podaj adres stacji (ulica nr budynku, kod pocztowy Miejscowość:  ")
+    location = input("Podaj adres stacji (ulica nr budynku, kod pocztowy Miejscowość):  ")
 
     insert_query = f"INSERT INTO public.stacje_pogotowia(nazwa, lokalizacja) VALUES ('{station}', '{location}');"
     cursor.execute(insert_query)
@@ -78,31 +78,30 @@ def update_station_name():
 def add_new_employee():
     name = input("Podaj imię:  ")
     surname = input("Podaj nazwisko:  ")
-    location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość:  ")
+    location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość):  ")
     specialization = input("Podaj funkcję pracownika:  ")
     station_id = input("Podaj numer stacji, której podlega:  ")
 
-    insert_query = f"INSERT INTO public.pracownicy_stacji(imie, nazwisko, lokalizacja, funkcja, id_stacji) VALUES ('{name}', '{surname}', '{location}', '{specialization}', '{station_id}');"
+    insert_query = f"INSERT INTO public.pracownicy(imie, nazwisko, lokalizacja, funkcja, id_stacji) VALUES ('{name}', '{surname}', '{location}', '{specialization}', '{station_id}');"
     cursor.execute(insert_query)
     db_params.commit()
     print(f"Dodano informacje o pracowniku - {name} {surname}.")
 
 
-
 ###########################################################
 
 def show_all_employees():
-    sql_query_1 = f' SELECT * FROM public.pracownicy_stacji'
+    sql_query_1 = f' SELECT * FROM public.pracownicy'
     cursor.execute(sql_query_1)
     query_result = cursor.fetchall()
     for row in query_result:
-        print(f'{row[0]} - {row[1]} {row[2]} ({row[4]}), adres: {row[3]}')
+        print(f'Nr pracownika: {row[0]} - {row[1]} {row[2]} ({row[4]}), adres: {row[3]}')
 
 
 ###########################################################
 
 def update_employee():
-    sql_query_1 = f" SELECT * FROM public.pracownicy_stacji;"
+    sql_query_1 = f" SELECT * FROM public.pracownicy;"
     cursor.execute(sql_query_1)
     query_result = cursor.fetchall()
     print(f'Znaleziono następujących pracowników: ')
@@ -113,11 +112,11 @@ def update_employee():
     print(numer)
     name = input("Podaj imię:  ")
     surname = input("Podaj nazwisko:  ")
-    location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość:  ")
+    location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość):  ")
     specialization = input("Podaj funkcję pracownika:  ")
     station_id = input("Podaj numer stacji, której podlega:  ")
 
-    sql_query_2 = (f"UPDATE public.pracownicy_stacji SET imie ='{name}', nazwisko = '{surname}', lokalizacja = '{location}', funkcja = '{specialization}', id_stacji = '{station_id}' WHERE id ='{query_result[numer - 1][0]}';")
+    sql_query_2 = (f"UPDATE public.pracownicy SET imie ='{name}', nazwisko = '{surname}', lokalizacja = '{location}', funkcja = '{specialization}', id_stacji = '{station_id}' WHERE id ='{query_result[numer - 1][0]}';")
     cursor.execute(sql_query_2)
     db_params.commit()
     print(f'Zmieniono dane wybranego pracownika')
@@ -130,8 +129,8 @@ def remove_employee():
     query_result = cursor.fetchall()
     print(f'Znaleziono następujące stacje: ')
 
-    for numer_stacji, station_to_be_removed in enumerate(query_result):
-        print(f'{numer_stacji + 1}: {station_to_be_removed}')
+    for numer_pracownika, station_to_be_removed in enumerate(query_result):
+        print(f'{numer_pracownika + 1}: {station_to_be_removed}')
     numer = int(input(f'Wybierz stację do usunięcia: '))
     print(numer)
     sql_query_2 = f"DELETE FROM public.stacje_pogotowia WHERE id='{query_result[numer - 1][0]}';"
@@ -141,27 +140,89 @@ def remove_employee():
 
 ###########################################################
 ########################## PRACOWNICY WYBRANEJ STACJI #################################
-def add_new_employee_by_station():
-    sql_query_1 = f"SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
-    print (f'Znaleziono następujące stacje: ')
+# def add_new_employee_by_station():
+#     sql_query_1 = f"SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
+#     print (f'Znaleziono następujące stacje: ')
+#
+#     name = input("Podaj imię:  ")
+#     surname = input("Podaj nazwisko:  ")
+#     location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość):  ")
+#     specialization = input("Podaj funkcję pracownika:  ")
+#     station_id = input("Podaj numer stacji, której podlega:  ")
+#
+#     insert_query = f"INSERT INTO public.pracownicy_stacji(imie, nazwisko, lokalizacja, funkcja, id_stacji) VALUES ('{name}', '{surname}', '{location}', '{specialization}', '{station_id}');"
+#     cursor.execute(insert_query)
+#     db_params.commit()
+#     print(f"Dodano informacje o pracowniku - {name} {surname}.")
 
-    name = input("Podaj imię:  ")
-    surname = input("Podaj nazwisko:  ")
-    location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość:  ")
-    specialization = input("Podaj funkcję pracownika:  ")
-    station_id = input("Podaj numer stacji, której podlega:  ")
+# add_new_employee_by_station()
 
-    insert_query = f"INSERT INTO public.pracownicy_stacji(imie, nazwisko, lokalizacja, funkcja, id_stacji) VALUES ('{name}', '{surname}', '{location}', '{specialization}', '{station_id}');"
+
+###########################################################
+########################## WEZWANIA #################################
+
+def add_new_call():
+    name = input("Podaj imię pacjenta:  ")
+    surname = input("Podaj nazwisko pacjenta:  ")
+    location = input("Podaj adres pacjenta (ulica nr budynku, kod pocztowy Miejscowość):  ")
+    incident = input("Podaj rodzaj incydentu:  ")
+    station_id = input("Podaj numer stacji, której pacjent podlega:  ")
+
+    insert_query = f"INSERT INTO public.pacjenci(imie, nazwisko, lokalizacja, incydent, id_stacji) VALUES ('{name}', '{surname}', '{location}', '{incident}', '{station_id}');"
     cursor.execute(insert_query)
     db_params.commit()
-    print(f"Dodano informacje o pracowniku - {name} {surname}.")
-
-add_new_employee_by_station()
+    print(f"Dodano informacje o wezwaniu pacjenta - {name} {surname}.")
 
 
+###########################################################
+def show_all_calls():
+    sql_query_1 = f' SELECT * FROM public.pacjenci'
+    cursor.execute(sql_query_1)
+    query_result = cursor.fetchall()
+    for row in query_result:
+        print(f'Nr pacjenta: {row[0]} - {row[1]} {row[2]} ({row[4]}), adres: {row[3]}')
 
 
+###########################################################
 
+def update_call():
+    sql_query_1 = f" SELECT * FROM public.pacjenci;"
+    cursor.execute(sql_query_1)
+    query_result = cursor.fetchall()
+    print(f'Znaleziono następujących pacjentów: ')
+
+    for numer_pacjenta, station_to_be_removed in enumerate(query_result):
+        print(f'{numer_pacjenta + 1}: {station_to_be_removed}')
+    numer = int(input(f'Wybierz pacjenta do modyfikacji: '))
+    print(numer)
+    name = input("Podaj imię pacjenta:  ")
+    surname = input("Podaj nazwisko pacjenta:  ")
+    location = input("Podaj adres pacjenta (ulica nr budynku, kod pocztowy Miejscowość):  ")
+    incident = input("Podaj rodzaj incydentu:  ")
+    station_id = input("Podaj numer stacji, której pacjent podlega:  ")
+
+    sql_query_2 = (f"UPDATE public.pacjenci SET imie ='{name}', nazwisko = '{surname}', lokalizacja = '{location}', incydent = '{incident}', id_stacji = '{station_id}' WHERE id ='{query_result[numer - 1][0]}';")
+    cursor.execute(sql_query_2)
+    db_params.commit()
+    print(f'Zmieniono informacje o wezwaniu wybranego pacjenta')
+
+
+###########################################################
+
+def remove_call():
+    sql_query_1 = f" SELECT * FROM public.pacjenci;"
+    cursor.execute(sql_query_1)
+    query_result = cursor.fetchall()
+    print(f'Znaleziono następujące wezwania pacjentów: ')
+
+    for numer_pacjenta, station_to_be_removed in enumerate(query_result):
+        print(f'{numer_pacjenta + 1}: {station_to_be_removed}')
+    numer = int(input(f'Wybierz wezwanie do usunięcia: '))
+    print(numer)
+    sql_query_2 = f"DELETE FROM public.pacjenci WHERE id='{query_result[numer - 1][0]}';"
+    cursor.execute(sql_query_2)
+    db_params.commit()
+    print(f'Usunięto informacje dotyczące wybranego wezwania')
 
 
 
