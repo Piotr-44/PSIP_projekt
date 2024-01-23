@@ -129,8 +129,8 @@ def remove_employee():
     query_result = cursor.fetchall()
     print(f'Znaleziono następujące stacje: ')
 
-    for numer_pracownika, station_to_be_removed in enumerate(query_result):
-        print(f'{numer_pracownika + 1}: {station_to_be_removed}')
+    for numer_pracownika, employee_to_be_removed in enumerate(query_result):
+        print(f'{numer_pracownika + 1}: {employee_to_be_removed}')
     numer = int(input(f'Wybierz stację do usunięcia: '))
     print(numer)
     sql_query_2 = f"DELETE FROM public.stacje_pogotowia WHERE id='{query_result[numer - 1][0]}';"
@@ -142,8 +142,12 @@ def remove_employee():
 ########################## PRACOWNICY WYBRANEJ STACJI #################################
 # def add_new_employee_by_station():
 #     sql_query_1 = f"SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
+#     cursor.execute(sql_query_1)
+#     query_result = cursor.fetchall()
 #     print (f'Znaleziono następujące stacje: ')
 #
+#     for numer_stacji, employee_to_be_removed in enumerate(query_result):
+#         print(f'{numer_stacji + 1}: {employee_to_be_removed}')
 #     name = input("Podaj imię:  ")
 #     surname = input("Podaj nazwisko:  ")
 #     location = input("Podaj adres pracownika (ulica nr budynku, kod pocztowy Miejscowość):  ")
@@ -191,8 +195,8 @@ def update_call():
     query_result = cursor.fetchall()
     print(f'Znaleziono następujących pacjentów: ')
 
-    for numer_pacjenta, station_to_be_removed in enumerate(query_result):
-        print(f'{numer_pacjenta + 1}: {station_to_be_removed}')
+    for numer_pacjenta, call_to_be_removed in enumerate(query_result):
+        print(f'{numer_pacjenta + 1}: {call_to_be_removed}')
     numer = int(input(f'Wybierz pacjenta do modyfikacji: '))
     print(numer)
     name = input("Podaj imię pacjenta:  ")
@@ -215,14 +219,18 @@ def remove_call():
     query_result = cursor.fetchall()
     print(f'Znaleziono następujące wezwania pacjentów: ')
 
-    for numer_pacjenta, station_to_be_removed in enumerate(query_result):
-        print(f'{numer_pacjenta + 1}: {station_to_be_removed}')
+    for numer_pacjenta, call_to_be_removed in enumerate(query_result):
+        print(f'{numer_pacjenta + 1}: {call_to_be_removed}')
     numer = int(input(f'Wybierz wezwanie do usunięcia: '))
     print(numer)
     sql_query_2 = f"DELETE FROM public.pacjenci WHERE id='{query_result[numer - 1][0]}';"
     cursor.execute(sql_query_2)
     db_params.commit()
     print(f'Usunięto informacje dotyczące wybranego wezwania')
+
+
+
+
 
 
 
