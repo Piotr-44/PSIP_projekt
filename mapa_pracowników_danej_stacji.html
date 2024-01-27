@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_36b2cacc96c2e168fb08c2c033392bb2 {
+                #map_cedfb3c496892e288f158f0e21d77361 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,14 +39,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_36b2cacc96c2e168fb08c2c033392bb2" ></div>
+            <div class="folium-map" id="map_cedfb3c496892e288f158f0e21d77361" ></div>
         
 </body>
 <script>
     
     
-            var map_36b2cacc96c2e168fb08c2c033392bb2 = L.map(
-                "map_36b2cacc96c2e168fb08c2c033392bb2",
+            var map_cedfb3c496892e288f158f0e21d77361 = L.map(
+                "map_cedfb3c496892e288f158f0e21d77361",
                 {
                     center: [52.23, 21.01],
                     crs: L.CRS.EPSG3857,
@@ -60,31 +60,52 @@
 
         
     
-            var tile_layer_657e16ab69b494233b10bc50090741fa = L.tileLayer(
+            var tile_layer_bdd8985b265d515eb5a34233d9b60509 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_657e16ab69b494233b10bc50090741fa.addTo(map_36b2cacc96c2e168fb08c2c033392bb2);
+            tile_layer_bdd8985b265d515eb5a34233d9b60509.addTo(map_cedfb3c496892e288f158f0e21d77361);
         
     
-            var marker_89823009bb9325cb93d263baee2434f9 = L.marker(
-                [52.2533277, 20.9916683],
+            var marker_b8ac574b3fa4cd6b32498e36354a4157 = L.marker(
+                [52.192528, 21.0581491],
                 {}
-            ).addTo(map_36b2cacc96c2e168fb08c2c033392bb2);
+            ).addTo(map_cedfb3c496892e288f158f0e21d77361);
         
     
-        var popup_4268b1b69d6a3a67145e3f7d3c3bbfc5 = L.popup({"maxWidth": "100%"});
+        var popup_617a57f0e125a3b09710a34165acf3af = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_38100bc9409c40918625a559d7679208 = $(`<div id="html_38100bc9409c40918625a559d7679208" style="width: 100.0%; height: 100.0%;">Imię: Jacek Nazwisko: Placek Stanowisko: Kardiolog Lokalizacja: Stanislawa Dubois 5-12, 00-184 Warszawa Współrzędne: 52.2533277, 20.9916683</div>`)[0];
-                popup_4268b1b69d6a3a67145e3f7d3c3bbfc5.setContent(html_38100bc9409c40918625a559d7679208);
+                var html_0700f87f79216a365c5fe8e35c8767a9 = $(`<div id="html_0700f87f79216a365c5fe8e35c8767a9" style="width: 100.0%; height: 100.0%;">Imię: Tomasz Nazwisko: Malina Stanowisko: Neurolog Lokalizacja: Gołkowska 25, 02-905 Warszawa Współrzędne: 52.192528, 21.0581491</div>`)[0];
+                popup_617a57f0e125a3b09710a34165acf3af.setContent(html_0700f87f79216a365c5fe8e35c8767a9);
             
         
 
-        marker_89823009bb9325cb93d263baee2434f9.bindPopup(popup_4268b1b69d6a3a67145e3f7d3c3bbfc5)
+        marker_b8ac574b3fa4cd6b32498e36354a4157.bindPopup(popup_617a57f0e125a3b09710a34165acf3af)
+        ;
+
+        
+    
+    
+            var marker_a224d4e54e69abf5565659633df3fa81 = L.marker(
+                [52.25082515, 20.991484612312192],
+                {}
+            ).addTo(map_cedfb3c496892e288f158f0e21d77361);
+        
+    
+        var popup_f4f07809fcddb64d34a41e245baf71fe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd14afa815092be4bcce889dd77a11ce = $(`<div id="html_fd14afa815092be4bcce889dd77a11ce" style="width: 100.0%; height: 100.0%;">Imię: Jacek Nazwisko: Placek Stanowisko: Kardiolog Lokalizacja: Miła 7, 00-180 Warszawa Współrzędne: 52.25082515, 20.991484612312192</div>`)[0];
+                popup_f4f07809fcddb64d34a41e245baf71fe.setContent(html_fd14afa815092be4bcce889dd77a11ce);
+            
+        
+
+        marker_a224d4e54e69abf5565659633df3fa81.bindPopup(popup_f4f07809fcddb64d34a41e245baf71fe)
         ;
 
         
