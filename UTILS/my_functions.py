@@ -26,10 +26,7 @@ def add_med_station():
     print(f"Dodano informacje o stacji pogotowia - {station}.")
 
 
-# add_med_station()
-
 ##########################################################
-
 def remove_med_station():
     sql_query_1 = f" SELECT * FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -47,7 +44,6 @@ def remove_med_station():
 
 
 ##########################################################
-
 def show_all_stations():
     sql_query_1 = f' SELECT * FROM public.stacje_pogotowia'
     cursor.execute(sql_query_1)
@@ -56,11 +52,8 @@ def show_all_stations():
         print(f'{row[0]} - {row[1]}')
 
 
-# show_all_stations()
-
 ############################################################
-
-def update_station_name():
+def update_station():
     sql_query_1 = f" SELECT * FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
     query_result = cursor.fetchall()
@@ -71,7 +64,8 @@ def update_station_name():
     numer = int(input(f'Wybierz stację do modyfikacji: '))
     print(numer)
     station = input('Podaj nową nazwę stacji: ')
-    sql_query_2 = (f"UPDATE public.stacje_pogotowia SET nazwa ='{station}' WHERE id ='{query_result[numer - 1][0]}';")
+    location = input('Podaj nowy adres stacji (ulica nr budynku, kod pocztowy Miejscowość): ')
+    sql_query_2 = (f"UPDATE public.stacje_pogotowia SET nazwa ='{station}', lokalizacja ='{location}' WHERE id ='{query_result[numer - 1][0]}';")
     cursor.execute(sql_query_2)
     db_params.commit()
     print(f'Zmieniono nazwę wybranej stacji')
@@ -93,7 +87,6 @@ def add_new_employee():
 
 
 ###########################################################
-
 def show_all_employees():
     sql_query_1 = f' SELECT * FROM public.pracownicy'
     cursor.execute(sql_query_1)
@@ -103,7 +96,6 @@ def show_all_employees():
 
 
 ###########################################################
-
 def update_employee():
     sql_query_1 = f" SELECT * FROM public.pracownicy;"
     cursor.execute(sql_query_1)
@@ -128,7 +120,6 @@ def update_employee():
 
 
 ###########################################################
-
 def remove_employee():
     sql_query_1 = f" SELECT * FROM public.pracownicy;"
     cursor.execute(sql_query_1)
@@ -147,7 +138,6 @@ def remove_employee():
 
 ###########################################################
 ########################## PRACOWNICY WYBRANEJ STACJI #################################
-
 def add_new_employee_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -200,7 +190,6 @@ def show_employees_by_station():
 
 
 ###########################################################
-
 def update_employees_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -245,10 +234,8 @@ def update_employees_by_station():
     else:
         print("Brak pracowników dla wybranej stacji.")
 
-# update_employees_by_station()
 
 ##########################################################
-
 def remove_employees_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -286,7 +273,6 @@ def remove_employees_by_station():
 
 ###########################################################
 ########################## WEZWANIA #################################
-
 def add_new_call():
     name = input("Podaj imię pacjenta:  ")
     surname = input("Podaj nazwisko pacjenta:  ")
@@ -310,7 +296,6 @@ def show_all_calls():
 
 
 ###########################################################
-
 def update_call():
     sql_query_1 = f" SELECT * FROM public.pacjenci;"
     cursor.execute(sql_query_1)
@@ -335,7 +320,6 @@ def update_call():
 
 
 ###########################################################
-
 def remove_call():
     sql_query_1 = f" SELECT id, imie, nazwisko, lokalizacja, incydent FROM public.pacjenci;"
     cursor.execute(sql_query_1)
@@ -354,7 +338,6 @@ def remove_call():
 
 ###########################################################
 ########################## INCYDENTY WYBRANEJ STACJI #################################
-
 def add_new_call_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -380,7 +363,6 @@ def add_new_call_by_station():
 
 
 ###########################################################
-
 def show_calls_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -406,8 +388,8 @@ def show_calls_by_station():
     else:
         print("Brak zgłoszonych incydentów.")
 
-###########################################################
 
+###########################################################
 def update_call_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)
@@ -452,8 +434,8 @@ def update_call_by_station():
     else:
         print("Brak zgłoszonych incydentów dla wybranej stacji.")
 
-###########################################################
 
+###########################################################
 def remove_call_by_station():
     sql_query_1 = "SELECT id, nazwa, lokalizacja FROM public.stacje_pogotowia;"
     cursor.execute(sql_query_1)

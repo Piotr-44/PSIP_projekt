@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3bb454392eced69e25038aa808573bf9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3bb454392eced69e25038aa808573bf9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3bb454392eced69e25038aa808573bf9 = L.map(
+                "map_3bb454392eced69e25038aa808573bf9",
+                {
+                    center: [52.23, 21.01],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_105b8c7ebdae8328f54dca7deb9a760f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_105b8c7ebdae8328f54dca7deb9a760f.addTo(map_3bb454392eced69e25038aa808573bf9);
+        
+    
+            var marker_18483bc6afcb58724ab06433d7ca151e = L.marker(
+                [52.1826677, 21.06978640339022],
+                {}
+            ).addTo(map_3bb454392eced69e25038aa808573bf9);
+        
+    
+        var popup_49da7e6dffa6bfd2fbe3dc72503e7119 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_acdc8c2eda4607fc8f0fc979fa79b8d0 = $(`<div id="html_acdc8c2eda4607fc8f0fc979fa79b8d0" style="width: 100.0%; height: 100.0%;">Meditrans. Wojewódzka Stacja Pogotowia Ratunkowego I Transportu Sanitarnego Lokalizacja: Morszyńska 33, 02-917 Warszawa Współrzędne: 52.1826677, 21.06978640339022</div>`)[0];
+                popup_49da7e6dffa6bfd2fbe3dc72503e7119.setContent(html_acdc8c2eda4607fc8f0fc979fa79b8d0);
+            
+        
+
+        marker_18483bc6afcb58724ab06433d7ca151e.bindPopup(popup_49da7e6dffa6bfd2fbe3dc72503e7119)
+        ;
+
+        
+    
+    
+            var marker_615c80ddd8db490d3180dc46b95b5e91 = L.marker(
+                [52.2356751, 21.0849925],
+                {}
+            ).addTo(map_3bb454392eced69e25038aa808573bf9);
+        
+    
+        var popup_d81757553893265a36d456dcac8d1141 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_757fcfcdc7e1424739ffa441b714740b = $(`<div id="html_757fcfcdc7e1424739ffa441b714740b" style="width: 100.0%; height: 100.0%;">Stacja Pogotowia Ratunkowego "Mazovia" Lokalizacja: Ostrobramska 101, 04-041 Warszawa Współrzędne: 52.2356751, 21.0849925</div>`)[0];
+                popup_d81757553893265a36d456dcac8d1141.setContent(html_757fcfcdc7e1424739ffa441b714740b);
+            
+        
+
+        marker_615c80ddd8db490d3180dc46b95b5e91.bindPopup(popup_d81757553893265a36d456dcac8d1141)
+        ;
+
+        
+    
+    
+            var marker_f59ad601cb0d9df42eb1c8d3219a8d8c = L.marker(
+                [52.0852012, 21.108232605915433],
+                {}
+            ).addTo(map_3bb454392eced69e25038aa808573bf9);
+        
+    
+        var popup_ee2a63b3f55de670772067ad4604ce5d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_96aaf41fea3fce2e576bc33f7ea30d9b = $(`<div id="html_96aaf41fea3fce2e576bc33f7ea30d9b" style="width: 100.0%; height: 100.0%;">Prywatna Stacja Pogotowia Ratunkowego i Transportu Medycznego Trans Mediq Lokalizacja: Mostowa 5, 05-510 Konstancin-Jeziorna Współrzędne: 52.0852012, 21.108232605915433</div>`)[0];
+                popup_ee2a63b3f55de670772067ad4604ce5d.setContent(html_96aaf41fea3fce2e576bc33f7ea30d9b);
+            
+        
+
+        marker_f59ad601cb0d9df42eb1c8d3219a8d8c.bindPopup(popup_ee2a63b3f55de670772067ad4604ce5d)
+        ;
+
+        
+    
+    
+            var marker_a306f533b4dc6b4c319c20dd4040d316 = L.marker(
+                [52.2990953, 21.11258296276759],
+                {}
+            ).addTo(map_3bb454392eced69e25038aa808573bf9);
+        
+    
+        var popup_2c8c7f28e24ebe4199e6beab9456778c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_280d502075e704c40688088041ba62b1 = $(`<div id="html_280d502075e704c40688088041ba62b1" style="width: 100.0%; height: 100.0%;">Oddział Ząbki, WSPRiTS Lokalizacja: Rychlińskiego 1, 05-091 Ząbki Współrzędne: 52.2990953, 21.11258296276759</div>`)[0];
+                popup_2c8c7f28e24ebe4199e6beab9456778c.setContent(html_280d502075e704c40688088041ba62b1);
+            
+        
+
+        marker_a306f533b4dc6b4c319c20dd4040d316.bindPopup(popup_2c8c7f28e24ebe4199e6beab9456778c)
+        ;
+
+        
+    
+    
+            var marker_6df003ebb03b755eaff6b7a8622195ad = L.marker(
+                [52.4022327, 21.1713704],
+                {}
+            ).addTo(map_3bb454392eced69e25038aa808573bf9);
+        
+    
+        var popup_34abf86729c494f63fb8d617105d8143 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31fccd66e5a8dd8740569900d9ed7bf1 = $(`<div id="html_31fccd66e5a8dd8740569900d9ed7bf1" style="width: 100.0%; height: 100.0%;">Oddział Radzymin WSPRiTS Lokalizacja: Aleja Jana Pawła II 59, 05-250 Radzymin Współrzędne: 52.4022327, 21.1713704</div>`)[0];
+                popup_34abf86729c494f63fb8d617105d8143.setContent(html_31fccd66e5a8dd8740569900d9ed7bf1);
+            
+        
+
+        marker_6df003ebb03b755eaff6b7a8622195ad.bindPopup(popup_34abf86729c494f63fb8d617105d8143)
+        ;
+
+        
+    
+</script>
+</html>
