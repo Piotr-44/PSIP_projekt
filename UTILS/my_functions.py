@@ -488,5 +488,5 @@ def remove_call_by_station():
     else:
         print("Brak zgłoszonych incydentów dla wybranej stacji.")
 
-add_new_call_by_station()
+
 
