@@ -1,8 +1,7 @@
 import psycopg2 as pcg
 import requests
-from bs4 import BeautifulSoup
 import folium
-from opencage.geocoder import OpenCageGeocode
+
 
 db_params = pcg.connect(
     user="postgres",
@@ -804,7 +803,7 @@ def log_in():
         gui()
 
     else:
-        print('Hasło nie poprawne. Spróbuj ponownie.')
+        print('Hasło niepoprawne. Spróbuj ponownie.')
         log_in()
 
 

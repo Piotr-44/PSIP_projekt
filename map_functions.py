@@ -1,8 +1,7 @@
 import psycopg2 as pcg
 import requests
-from bs4 import BeautifulSoup
 import folium
-from opencage.geocoder import OpenCageGeocode
+
 
 db_params = pcg.connect(
     user="postgres",
