@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6b898c5b37f7145a29c75403357dacca {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_6b898c5b37f7145a29c75403357dacca" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6b898c5b37f7145a29c75403357dacca = L.map(
+                "map_6b898c5b37f7145a29c75403357dacca",
+                {
+                    center: [52.23, 21.01],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a1b92fb80571ac958da073c93c445cc5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_a1b92fb80571ac958da073c93c445cc5.addTo(map_6b898c5b37f7145a29c75403357dacca);
+        
+    
+            var marker_cc6bc6a3b33b16ad074a5ba7414e1258 = L.marker(
+                [52.192528, 21.0581491],
+                {}
+            ).addTo(map_6b898c5b37f7145a29c75403357dacca);
+        
+    
+        var popup_023a4464460f26c15b99265dbe2d2b4b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d6931254e038dd729c6a8aa8d3b77292 = $(`<div id="html_d6931254e038dd729c6a8aa8d3b77292" style="width: 100.0%; height: 100.0%;">Imię: Tomasz Nazwisko: Malina Stanowisko: Neurolog Lokalizacja: Gołkowska 25, 02-905 Warszawa Współrzędne: 52.192528, 21.0581491</div>`)[0];
+                popup_023a4464460f26c15b99265dbe2d2b4b.setContent(html_d6931254e038dd729c6a8aa8d3b77292);
+            
+        
+
+        marker_cc6bc6a3b33b16ad074a5ba7414e1258.bindPopup(popup_023a4464460f26c15b99265dbe2d2b4b)
+        ;
+
+        
+    
+    
+            var marker_088febdf890cb611543ddf37da5d3f1f = L.marker(
+                [52.25082515, 20.991484612312192],
+                {}
+            ).addTo(map_6b898c5b37f7145a29c75403357dacca);
+        
+    
+        var popup_26fd141b04d66d87af0fe9628531b474 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_10a04af75fcee698281210209ed8662a = $(`<div id="html_10a04af75fcee698281210209ed8662a" style="width: 100.0%; height: 100.0%;">Imię: Jacek Nazwisko: Placek Stanowisko: Kardiolog Lokalizacja: Miła 7, 00-180 Warszawa Współrzędne: 52.25082515, 20.991484612312192</div>`)[0];
+                popup_26fd141b04d66d87af0fe9628531b474.setContent(html_10a04af75fcee698281210209ed8662a);
+            
+        
+
+        marker_088febdf890cb611543ddf37da5d3f1f.bindPopup(popup_26fd141b04d66d87af0fe9628531b474)
+        ;
+
+        
+    
+    
+            var marker_6e4e2532f9231d9e0a58609376723fe1 = L.marker(
+                [52.252134749999996, 20.89716676626126],
+                {}
+            ).addTo(map_6b898c5b37f7145a29c75403357dacca);
+        
+    
+        var popup_776ccebf93e1a3150928366426b20d87 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_07f4888a84540e7f3b472c367fda3b42 = $(`<div id="html_07f4888a84540e7f3b472c367fda3b42" style="width: 100.0%; height: 100.0%;">Imię: Maciej Nazwisko: Malinowski Stanowisko: Ratownik Lokalizacja: Kaliskiego 17, Warszawa Współrzędne: 52.252134749999996, 20.89716676626126</div>`)[0];
+                popup_776ccebf93e1a3150928366426b20d87.setContent(html_07f4888a84540e7f3b472c367fda3b42);
+            
+        
+
+        marker_6e4e2532f9231d9e0a58609376723fe1.bindPopup(popup_776ccebf93e1a3150928366426b20d87)
+        ;
+
+        
+    
+</script>
+</html>
